@@ -12,7 +12,6 @@ export class StudentsComponent implements OnInit {
   public studentForm!: FormGroup;
   public title = 'Students';
   public selectedStudent: Student | undefined;
-  public textSimple = '';
 
   public students = [
     { id: 1, name: 'Marta', lastname: 'Kent', phone: '3223322' },
@@ -28,8 +27,7 @@ export class StudentsComponent implements OnInit {
     this.createForm();
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   createForm() {
     this.studentForm = this.fb.group({
