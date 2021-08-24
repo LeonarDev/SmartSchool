@@ -1,6 +1,20 @@
 <app-title [title]="title"></app-title>
-<ul>
-  <li *ngFor="let student of students">
-    {{ student.name }}
-  </li>
-</ul>
+
+<table class="table">
+  <thead class="table-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First name</th>
+      <th scope="col">Last name</th>
+      <th scope="col">Subject</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let student of students">
+      <th scope="row">{{ student.id }}</th>
+      <td>{{ student.name }}</td>
+      <td>{{ student.lastname }}</td>
+      <td>{{ student.phone }}</td>
+    </tr>
+  </tbody>
+</table>

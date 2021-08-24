@@ -10,11 +10,11 @@ export class TeachersComponent implements OnInit {
   public title = 'Teachers';
 
   public teachers = [
-    { name: 'Lauro' },
-    { name: 'Roberta' },
-    { name: 'Ronaldo' },
-    { name: 'Rodrigo' },
-    { name: 'Alexandra' },
+    { id: 1, name: 'Lauro', lastname: 'Green', subject: 'Math'  },
+    { id: 2, name: 'Roberta', lastname: 'Blue', subject: 'Physics' },
+    { id: 3, name: 'Ronaldo', lastname: 'White', subject: 'English' },
+    { id: 4, name: 'Rodrigo', lastname: 'Black', subject: 'Portuguese' },
+    { id: 5, name: 'Alexandra', lastname: 'Gray', subject: 'Programming' },
   ];
 
   constructor() { }
