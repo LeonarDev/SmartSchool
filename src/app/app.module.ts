@@ -7,6 +7,8 @@ import { StudentsComponent } from './students/students.component';
 import { TeachersComponent } from './teachers/teachers.component';
 import { ProfileComponent } from './profile/profile.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NavComponent } from './nav/nav.component';
 
 @NgModule({
   declarations: [
@@ -14,11 +16,13 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     StudentsComponent,
     TeachersComponent,
     ProfileComponent,
-    DashboardComponent
+    DashboardComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
