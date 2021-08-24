@@ -1,20 +1,28 @@
-<app-title [title]="title"></app-title>
+<div *ngIf="selectedTeacher">
+  <app-title [title]="'Teacher: ' + selectedTeacher"></app-title>
+  <br>
+  <button (click)="back()">Back</button>
+</div>
 
-<table class="table">
-  <thead class="table-dark">
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First name</th>
-      <th scope="col">Last name</th>
-      <th scope="col">Subject</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let teacher of teachers">
-      <th scope="row">{{ teacher.id }}</th>
-      <td>{{ teacher.name }}</td>
-      <td>{{ teacher.lastname }}</td>
-      <td>{{ teacher.subject }}</td>
-    </tr>
-  </tbody>
-</table>
+<div *ngIf="!selectedTeacher">
+  <app-title [title]="title"></app-title>
+  
+  <table class="table table-hover">
+    <thead class="table-light">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First name</th>
+        <th scope="col">Last name</th>
+        <th scope="col">Subject</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let teacher of teachers" (click)="selectTeacher(teacher)" style="cursor: pointer">
+        <th scope="row">{{ teacher.id }}</th>
+        <td>{{ teacher.name }}</td>
+        <td>{{ teacher.lastname }}</td>
+        <td>{{ teacher.subject }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

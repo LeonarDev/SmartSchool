@@ -1,20 +1,29 @@
-<app-title [title]="title"></app-title>
 
-<table class="table">
-  <thead class="table-dark">
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First name</th>
-      <th scope="col">Last name</th>
-      <th scope="col">Subject</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let student of students">
-      <th scope="row">{{ student.id }}</th>
-      <td>{{ student.name }}</td>
-      <td>{{ student.lastname }}</td>
-      <td>{{ student.phone }}</td>
-    </tr>
-  </tbody>
-</table>
+<div *ngIf="selectedStudent">
+  <app-title [title]="'Student: ' + selectedStudent"></app-title>
+  <br>
+  <button class="" (click)="back()">Back</button>
+</div>
+
+<div *ngIf="!selectedStudent">
+  <app-title [title]="title"></app-title>
+  
+  <table class="table table-hover">
+    <thead class="table-light">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First name</th>
+        <th scope="col">Last name</th>
+        <th scope="col">Subject</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of students" (click)="selectStudent(student)" style="cursor: pointer">
+        <th scope="row">{{ student.id }}</th>
+        <td>{{ student.name }}</td>
+        <td>{{ student.lastname }}</td>
+        <td>{{ student.phone }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
