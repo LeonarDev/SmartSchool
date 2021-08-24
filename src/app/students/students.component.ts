@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Student } from '../models/student';
 
 @Component({
   selector: 'app-students',
@@ -8,16 +9,16 @@ import { Component, OnInit } from '@angular/core';
 export class StudentsComponent implements OnInit {
   
   public title = 'Students';
-  public selectedStudent = '';
+  public selectedStudent: Student | undefined;
 
   public students = [
-    { id: 1, name: 'Marta', lastname: 'Kent', phone: 3223322 },
-    { id: 2, name: 'Paula', lastname: 'Machado', phone: 32286753 },
-    { id: 3, name: 'Laura', lastname: 'Pausini', phone: 32291567 },
-    { id: 4, name: 'Luiza', lastname: 'Mel', phone: 32235788 },
-    { id: 5, name: 'Lucas', lastname: 'Lucco', phone: 322336789 },
-    { id: 6, name: 'Pedro', lastname: 'Pedra', phone: 32231592 },
-    { id: 7, name: 'Paulo', lastname: 'Ricardo', phone: 32231947 },
+    { id: 1, name: 'Marta', lastname: 'Kent', phone: '3223322' },
+    { id: 2, name: 'Paula', lastname: 'Machado', phone: '32286753' },
+    { id: 3, name: 'Laura', lastname: 'Pausini', phone: '32291567' },
+    { id: 4, name: 'Luiza', lastname: 'Mel', phone: '32235788' },
+    { id: 5, name: 'Lucas', lastname: 'Lucco', phone: '322336789' },
+    { id: 6, name: 'Pedro', lastname: 'Pedra', phone: '32231592' },
+    { id: 7, name: 'Paulo', lastname: 'Ricardo', phone: '32231947' },
   ];
 
   constructor() { }
@@ -25,12 +26,12 @@ export class StudentsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  selectStudent(student: any) {
-    this.selectedStudent = student.name;
+  selectStudent(student: Student) {
+    this.selectedStudent = student;
   }
 
   back() {
-    this.selectedStudent = '';
+    this.selectedStudent = undefined;
   }
 
 }
