@@ -3,7 +3,7 @@
   
     <div class="d-flex mb-3">
       <div class="p-2">
-        <app-title [title]="'Teacher #' + selectedTeacher.id"></app-title>
+        <app-title [title]="'Id #' + selectedTeacher.id"></app-title>
       </div>
     </div>
   
@@ -24,12 +24,12 @@
       </div>
       
       <button type="submit" class="btn btn-primary me-3">Submit</button>
-      <button class="btn btn-outline-secondary" (click)="back()">Back</button>
+      <button class="btn btn-outline-secondary" (click)="back()">Close</button>
     </form>
   
   </div>
   
-  <div [ngClass]="{'col-sm-12': false, 'col-sm-6': selectedTeacher}">
+  <div [ngClass]="{'col-sm-6': selectedTeacher, 'col-sm-12': !selectedTeacher }">
     <app-title [title]="title"></app-title>
 
     <br>
@@ -54,4 +54,3 @@
     </table>
   </div>
 </div>
-

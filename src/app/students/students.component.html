@@ -1,35 +1,41 @@
 <div class="row">
+
+  <!-- <div>
+    <input type="text" [(ngModel)]="textSimple">
+    <p>{{ textSimple }}</p>
+  </div> -->
+
   <div *ngIf="selectedStudent" class="col-sm-6">
     
     <div class="d-flex mb-3">
       <div class="p-2">
-        <app-title [title]="'Student #' + selectedStudent.id"></app-title>
+        <app-title [title]="'Id #' + selectedStudent.id"></app-title>
       </div>
     </div>
     
-    <form>
+    <form [formGroup]="studentForm" (submit)="studentSubmit()">
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Name</label>
-        <input type="text" value="{{ selectedStudent.name }}" class="form-control">
+        <input type="text" formControlName="name" class="form-control">
       </div>
       
       <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">Last name</label>
-        <input type="text" value="{{ selectedStudent.lastname }}" class="form-control">
+        <input type="text" formControlName="lastname" class="form-control">
       </div>
       
       <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">Phone number</label>
-        <input type="text" value="{{ selectedStudent.phone }}" class="form-control">
+        <input type="text" formControlName="phone" class="form-control">
       </div>
       
-      <button type="submit" class="btn btn-primary me-3">Submit</button>
-      <button class="btn btn-outline-secondary" (click)="back()">Back</button>
+      <button class="btn btn-primary me-3">Submit</button>
+      <button class="btn btn-outline-secondary" (click)="back()">Close</button>
     </form>
     
   </div>
   
-  <div [ngClass]="{'col-sm-12': false, 'col-sm-6': selectedStudent}">
+  <div [ngClass]="{'col-sm-6': selectedStudent, 'col-sm-12': !selectedStudent}">
     <app-title [title]="title"></app-title>
     
     <br>
@@ -54,4 +60,3 @@
     </table>
   </div>
 </div>
-
