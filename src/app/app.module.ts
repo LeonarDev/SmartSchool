@@ -9,6 +9,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavComponent } from './nav/nav.component';
+import { TitleComponent } from './title/title.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { NavComponent } from './nav/nav.component';
     TeachersComponent,
     ProfileComponent,
     DashboardComponent,
-    NavComponent
+    NavComponent,
+    TitleComponent
   ],
   imports: [
     BrowserModule,
