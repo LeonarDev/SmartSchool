@@ -1,61 +1,57 @@
-<div *ngIf="selectedStudent">
-
-  <div class="d-flex mb-3">
-
-    <div class="p-2">
-      <app-title [title]="'Student #' + selectedStudent.id"></app-title>
+<div class="row">
+  <div *ngIf="selectedStudent" class="col-sm-6">
+    
+    <div class="d-flex mb-3">
+      <div class="p-2">
+        <app-title [title]="'Student #' + selectedStudent.id"></app-title>
+      </div>
     </div>
-
-    <div class="p-2 ms-auto">
-      <button class="btn btn-outline-secondary" (click)="back()">Back to student list</button>
-    </div>
-
+    
+    <form>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Name</label>
+        <input type="text" value="{{ selectedStudent.name }}" class="form-control">
+      </div>
+      
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Last name</label>
+        <input type="text" value="{{ selectedStudent.lastname }}" class="form-control">
+      </div>
+      
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Phone number</label>
+        <input type="text" value="{{ selectedStudent.phone }}" class="form-control">
+      </div>
+      
+      <button type="submit" class="btn btn-primary me-3">Submit</button>
+      <button class="btn btn-outline-secondary" (click)="back()">Back</button>
+    </form>
+    
   </div>
-
-  <br>
-
-  <form>
-    
-    <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Name</label>
-      <input type="text" value="{{ selectedStudent.name }}" class="form-control">
-    </div>
-    
-    <div class="mb-3">
-      <label for="exampleInputPassword1" class="form-label">Last name</label>
-      <input type="text" value="{{ selectedStudent.lastname }}" class="form-control">
-    </div>
-    
-    <div class="mb-3">
-      <label for="exampleInputPassword1" class="form-label">Phone number</label>
-      <input type="text" value="{{ selectedStudent.phone }}" class="form-control">
-    </div>
-    
-    <button type="submit" class="btn btn-primary">Submit</button>
   
-  </form>
-  
+  <div [ngClass]="{'col-sm-12': false, 'col-sm-6': selectedStudent}">
+    <app-title [title]="title"></app-title>
+    
+    <br>
+
+    <table class="table table-hover">
+      <thead class="table-light">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">First name</th>
+          <th scope="col">Last name</th>
+          <th scope="col">Phone</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let student of students" (click)="selectStudent(student)" style="cursor: pointer">
+          <th scope="row">{{ student.id }}</th>
+          <td>{{ student.name }}</td>
+          <td>{{ student.lastname }}</td>
+          <td>{{ student.phone }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 
-<div *ngIf="!selectedStudent">
-  <app-title [title]="title"></app-title>
-  
-  <table class="table table-hover">
-    <thead class="table-light">
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">First name</th>
-        <th scope="col">Last name</th>
-        <th scope="col">Phone</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let student of students" (click)="selectStudent(student)" style="cursor: pointer">
-        <th scope="row">{{ student.id }}</th>
-        <td>{{ student.name }}</td>
-        <td>{{ student.lastname }}</td>
-        <td>{{ student.phone }}</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
