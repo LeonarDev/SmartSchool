@@ -12,6 +12,8 @@ import { NavComponent } from './nav/nav.component';
 import { TitleComponent } from './title/title.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     BsDropdownModule.forRoot(),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FontAwesomeModule,
+    ModalModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

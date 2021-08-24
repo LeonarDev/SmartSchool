@@ -37,18 +37,27 @@
     <table class="table table-hover">
       <thead class="table-light">
         <tr>
+          <th scope="col">Info</th>
           <th scope="col">#</th>
           <th scope="col">First name</th>
           <th scope="col">Last name</th>
           <th scope="col">Phone</th>
+          <th scope="col">Options</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let student of students" (click)="selectStudent(student)" style="cursor: pointer">
-          <th scope="row">{{ student.id }}</th>
+        <tr *ngFor="let student of students">
+          <td><button class="btn btn-outline-warning me-1" (click)="selectStudent(student)"><fa-icon [icon]="faInfoCircle"></fa-icon></button></td>
+          <td>{{ student.id }}</td>
           <td>{{ student.name }}</td>
           <td>{{ student.lastname }}</td>
           <td>{{ student.phone }}</td>
+          <td>
+            <div class="btn-group">
+              <button class="btn btn-outline-dark me-1"><fa-icon [icon]="faGraduationCap"></fa-icon> See Teachers</button>
+              <button class="btn btn-outline-danger me-1"><fa-icon [icon]="faUserSlash"></fa-icon> Disable Student</button>
+            </div>
+          </td>
         </tr>
       </tbody>
     </table>

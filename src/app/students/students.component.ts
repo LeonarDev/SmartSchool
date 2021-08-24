@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Student } from '../models/student';
+import { faInfoCircle, faGraduationCap, faUserSlash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-students',
@@ -12,6 +13,9 @@ export class StudentsComponent implements OnInit {
   public studentForm!: FormGroup;
   public title = 'Students';
   public selectedStudent: Student | undefined;
+  public faInfoCircle = faInfoCircle;
+  public faGraduationCap = faGraduationCap;
+  public faUserSlash = faUserSlash;
 
   public students = [
     { id: 1, name: 'Marta', lastname: 'Kent', phone: '3223322' },
