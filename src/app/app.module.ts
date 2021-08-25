@@ -14,6 +14,8 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { StudentDetailComponent } from './student-detail/student-detail.component';
+import { TeacherDetailComponent } from './teacher-detail/teacher-detail.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     ProfileComponent,
     DashboardComponent,
     NavComponent,
-    TitleComponent
+    TitleComponent,
+    StudentDetailComponent,
+    TeacherDetailComponent,
   ],
   imports: [
     BrowserModule,

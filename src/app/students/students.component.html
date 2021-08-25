@@ -9,7 +9,7 @@
     
     <form [formGroup]="studentForm" (submit)="studentSubmit()">
       <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Name</label>
+        <label for="exampleInputEmail1" class="form-label">First name</label>
         <input type="text" formControlName="name" class="form-control">
       </div>
       
@@ -47,15 +47,19 @@
       </thead>
       <tbody>
         <tr *ngFor="let student of students">
-          <td><button class="btn btn-outline-warning me-1" (click)="selectStudent(student)"><fa-icon [icon]="faInfoCircle"></fa-icon></button></td>
+          <td>
+            <button class="text-dark btn btn-sm btn-outline-warning me-1" (click)="selectStudent(student)">
+              <fa-icon [icon]="faInfoCircle"></fa-icon>
+            </button>
+          </td>
           <td>{{ student.id }}</td>
           <td>{{ student.name }}</td>
           <td>{{ student.lastname }}</td>
           <td>{{ student.phone }}</td>
           <td>
             <div class="btn-group">
-              <button class="btn btn-outline-dark me-1"><fa-icon [icon]="faGraduationCap"></fa-icon> See Teachers</button>
-              <button class="btn btn-outline-danger me-1"><fa-icon [icon]="faUserSlash"></fa-icon> Disable Student</button>
+              <button (click)="openModal(template)" class="btn btn-sm btn-outline-dark me-1"><fa-icon [icon]="faGraduationCap"></fa-icon> See Teachers</button>
+              <button class="btn btn-sm btn-outline-danger me-1"><fa-icon [icon]="faUserSlash"></fa-icon> Disable Student</button>
             </div>
           </td>
         </tr>
@@ -63,3 +67,12 @@
     </table>
   </div>
 </div>
+
+<ng-template #template>
+  <div class="modal-body">
+    <app-teachers></app-teachers>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-secondary" (click)="modalRef.hide()">Close</button>
+  </div>
+</ng-template>

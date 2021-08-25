@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Student } from '../models/student';
+
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { faInfoCircle, faGraduationCap, faUserSlash } from '@fortawesome/free-solid-svg-icons';
+
+import { Student } from '../models/Student';
 
 @Component({
   selector: 'app-students',
@@ -10,6 +13,7 @@ import { faInfoCircle, faGraduationCap, faUserSlash } from '@fortawesome/free-so
 })
 export class StudentsComponent implements OnInit {
   
+  public modalRef!: BsModalRef;
   public studentForm!: FormGroup;
   public title = 'Students';
   public selectedStudent: Student | undefined;
@@ -26,8 +30,14 @@ export class StudentsComponent implements OnInit {
     { id: 6, name: 'Pedro', lastname: 'Pedra', phone: '32231592' },
     { id: 7, name: 'Paulo', lastname: 'Ricardo', phone: '32231947' },
   ];
+ 
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
+  }
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private modalService: BsModalService) {
     this.createForm();
   }
 
